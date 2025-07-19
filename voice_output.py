@@ -15,13 +15,14 @@ voices = engine.getProperty('voices')
 # For a female voice (if available)
 # engine.setProperty('voice', voices[1].id)
 
-def speak(text):
+def speak(text, gui): # Add gui as an argument
     """
-    Convert text to speech and output through speakers
+    Convert text to speech and update the GUI
     
     Args:
         text (str): Text to be spoken
+        gui: The GUI object to update
     """
-    print(f"Jarvis: {text}")
+    gui.update_status(f"Jarvis: {text}") # Update GUI instead of printing
     engine.say(text)
     engine.runAndWait()
